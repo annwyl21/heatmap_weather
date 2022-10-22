@@ -8,14 +8,15 @@ end_date = 2010
 
 df = pd.read_csv('heathrow_weather_data1.txt', delim_whitespace=True, skiprows=6, header=0, names=['Year', 'Month', 'Mean daily maximum temperature', 'Mean daily minimum temperature', 'Days of air frost', 'Total rainfall\, mm', 'Total sunshine hours'])
 df['Total sunshine hours'] = df['Total sunshine hours'].str.replace('#','')
-# print(df.head())
+print(df.head())
 
 # sns.set_style("whitegrid")#whitegrid, dark, white, ticks
-sns.set_palette("Spectral")
-# #palette choices: deep, muted, pastel, bright, dark, and colorblind
-# #http://colorbrewer2.org 
-# #ColourBrewer Palettes: 
+sns.color_palette("YlGnBu")
+#palette choices: deep, muted, pastel, bright, dark, and colorblind
+#http://colorbrewer2.org 
+#ColourBrewer Palettes: 
 sns.set_context('paper', font_scale=0.5)#notebook, talk, poster
+
 
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -51,59 +52,59 @@ def between_two_years(start, stop):
     temperature_array.append(october)
     temperature_array.append(november)
     temperature_array.append(december)
-    
+# Using column 5, rainfall to generate the numpy grid
 def month_data(year):
     for item in range(1,13):
         dataframe_row = df[(df.Year == year) & (df.Month == item)]
         if item == 1:
-            january.append(dataframe_row.iat[0,2])
+            january.append(dataframe_row.iat[0,5])
         elif item == 2:
-            february.append(dataframe_row.iat[0,2])
+            february.append(dataframe_row.iat[0,5])
         elif item == 3:
-            march.append(dataframe_row.iat[0,2])
+            march.append(dataframe_row.iat[0,5])
         elif item == 4:
-            april.append(dataframe_row.iat[0,2])
+            april.append(dataframe_row.iat[0,5])
         elif item == 5:
-            may.append(dataframe_row.iat[0,2])
+            may.append(dataframe_row.iat[0,5])
         elif item == 6:
-            june.append(dataframe_row.iat[0,2])
+            june.append(dataframe_row.iat[0,5])
         elif item == 7:
-            july.append(dataframe_row.iat[0,2])
+            july.append(dataframe_row.iat[0,5])
         elif item == 8:
-            august.append(dataframe_row.iat[0,2])
+            august.append(dataframe_row.iat[0,5])
         elif item == 9:
-            september.append(dataframe_row.iat[0,2])
+            september.append(dataframe_row.iat[0,5])
         elif item == 10:
-            october.append(dataframe_row.iat[0,2])
+            october.append(dataframe_row.iat[0,5])
         elif item == 11:
-            november.append(dataframe_row.iat[0,2])
+            november.append(dataframe_row.iat[0,5])
         else:
-            december.append(dataframe_row.iat[0,2])
+            december.append(dataframe_row.iat[0,5])
 
 between_two_years(start_date, end_date)
 
-mean_temp = np.asarray(temperature_array)
-print(mean_temp)
+rainfall = np.asarray(temperature_array)
+print(rainfall)
 
 fig, ax = plt.subplots()
-im = ax.imshow(mean_temp)
+im = ax.imshow(rainfall)
 
 
 # Show all ticks and label them with the respective list entries
 ax.set_xticks(np.arange(len(years)), labels=years)
 ax.set_yticks(np.arange(len(months)), labels=months)
 
-# Rotate the tick labels and set their alignment.
-plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+# Set x tick label alignment.
+plt.setp(ax.get_xticklabels(), ha="right",
          rotation_mode="anchor")
 
-# Loop over data dimensions and create text annotations.
+# Loop over data dimensions and create text annotations in each box.
 for i in range(len(months)):
     for j in range(len(years)):
-        text = ax.text(j, i, mean_temp[i, j],
+        text = ax.text(j, i, rainfall[i, j],
                        ha="center", va="center", color="w")
 
-ax.set_title("Average maximum monthly temperatures between {s} and {e}".format(s=start_date, e=end_date)) 
+ax.set_title("Total Rainfall in mm Between {s} And {e}".format(s=start_date, e=end_date)) 
 fig.tight_layout()
 plt.savefig('heathrow_rainfall_heatmap_decade.png')
 plt.show()
