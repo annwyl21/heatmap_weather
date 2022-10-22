@@ -37,11 +37,11 @@ python heathrow_weather_heatmap_alldata.py 2000 2020 2
 ```
 where start date is 2000, end date is 2020 and "2" denotes that we wish to view column 2 - Mean Daily Miniumum Temperature, also prints head and tail to terminal.
 
-Challenges Overcome:
+### Challenges Overcome:
 - Cleaning up the data by skipping the first 6 rows of written explanation of the data, renaming the columns, and removing the # symbol from the sunshine hours from September 2005 onwards. The # denoted use of an alternative sensor.
 - Recognising how the numpy data grid generates the data and my axes are correctly labelled, e.g. January is in the right place.
 - Coding in a defined centre point for a colourbar
 
-Challenges not overcome:
+### Challenges yet to overcome:
 - In order to use the data I had to manually remove all the data from 2021, stopping the data at December 2020 instead, as this created a column problem.
 - Still working on air frost and total sunshine hours in the final example.
