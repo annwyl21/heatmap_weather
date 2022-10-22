@@ -132,7 +132,7 @@ else:
 ax.set_xticklabels(years)
 plt.setp(ax.get_xticklabels(), rotation=45, size=5)
 #y-axis
-months = ['Dec', 'Nov', 'Oct', 'Sep', 'Aug', 'Jul', 'Jun', 'May', 'Apr', 'Mar', 'Feb', 'Jan']
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 ax.set_yticklabels(months)
 plt.setp(ax.get_yticklabels(), rotation=0, size=7) 
 
