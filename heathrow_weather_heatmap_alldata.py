@@ -141,5 +141,5 @@ ax.set_title("Heathrow - {t} {s} and {e}".format(t=the_title, s=start_date, e=en
 ax.set_xlabel('Time Period {s} to {e}'.format(s=start_date, e=end_date))
 ax.set_ylabel('Months')
 
-plt.savefig('heathrow_heatmap.png')
+plt.savefig('heathrow_sunshine_heatmap.png')
 plt.show()

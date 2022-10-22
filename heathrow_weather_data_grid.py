@@ -16,22 +16,12 @@ sns.set_palette("Spectral")
 # #http://colorbrewer2.org 
 # #ColourBrewer Palettes: 
 sns.set_context('paper', font_scale=0.5)#notebook, talk, poster
-# plt.figure(figsize = (10, 6))
 
-#imshow - simple categorical heatmap
-# vegetables = ["cucumber", "tomato", "lettuce", "asparagus",
-#               "potato", "wheat", "barley"]
+
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-# farmers = ["Farmer Joe", "Upland Bros.", "Smith Gardening",
-#            "Agrifun", "Organiculture", "BioGoods Ltd.", "Cornylee Corp."]
+
 years = ['Y1', 'Y2', 'Y3', 'Y4', 'Y5', 'Y6', 'Y7', 'Y8', 'Y9', 'Y10']
-# harvest = np.array([[0.8, 2.4, 2.5, 3.9, 0.0, 4.0, 0.0],
-#                     [2.4, 0.0, 4.0, 1.0, 2.7, 0.0, 0.0],
-#                     [1.1, 2.4, 0.8, 4.3, 1.9, 4.4, 0.0],
-#                     [0.6, 0.0, 0.3, 0.0, 3.1, 0.0, 0.0],
-#                     [0.7, 1.7, 0.6, 2.6, 2.2, 6.2, 0.0],
-#                     [1.3, 1.2, 0.0, 0.0, 0.0, 3.2, 5.1],
-#                     [0.1, 2.0, 0.0, 1.4, 0.0, 1.9, 6.3]])
+
 temperature_array = []
 january = []
 february = []
@@ -115,5 +105,5 @@ for i in range(len(months)):
 
 ax.set_title("Average maximum monthly temperatures between {s} and {e}".format(s=start_date, e=end_date)) 
 fig.tight_layout()
-
+plt.savefig('heathrow_rainfall_heatmap_decade.png')
 plt.show()
