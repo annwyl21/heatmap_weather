@@ -27,3 +27,4 @@ Challenges Overcome:
 
 Challenges not overcome:
 - In order to use the data I had to manually remove all the data from 2021, stopping the data at December 2020 instead, as this created a column problem.
+- Still working on air frost and total sunshine hours in the final example
