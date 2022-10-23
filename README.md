@@ -25,7 +25,7 @@ python heathrow_weather_heatmap.py
 ```
 Also prints the head of the data to the terminal.
 
-2. To generate a heatmap to show the monthly total of sunshine hours over a specific decade, run 
+2. To generate a heatmap to show the monthly total rainfall in mm over a specific decade, run 
 ```bash
 python heathrow_weather_data_grid.py
 ```
